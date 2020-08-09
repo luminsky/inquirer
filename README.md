@@ -2,10 +2,4 @@
 
 A quiz as a simple Angular application
 
-Hosted on `https://in-quirer.web.app/`
-
-## Development server
-
-Install packages via `npm install` and run `ng serve` for a dev server on `http://localhost:4200/`.
-
-![Screenshot](https://repository-images.githubusercontent.com/285321393/2ee07480-d959-11ea-9f34-a5cfd5f499aa "Screenshot")
+![Screenshot](https://repository-images.githubusercontent.com/286328829/bab6e580-daac-11ea-8bfd-0e4c8a844838 "Screenshot")
