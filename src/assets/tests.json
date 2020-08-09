@@ -1,0 +1,165 @@
+[{
+  "id": 1,
+  "title": "Knowledge Of Mathematics",
+  "content": [{
+    "question": "Plot the points [1, 2], [1, 6], [5, 6] and [5, 2] and join them in order. What is the perimeter of the shape formed?",
+    "answers": ["16", "20", "25", "36"],
+    "correct": 0
+  }, {
+    "question": "Two numbers are in ratio 4 : 5. If the sum of the numbers is 135, find the numbers.",
+    "answers": ["50 and 65", "70 and 95", "65 and 75", "60 and 75"],
+    "correct": 3
+  }, {
+    "question": "The square root of 0.0081 is ... .",
+    "answers": ["0.09", "0.9", "0.91", "0.009"],
+    "correct": 0
+  }, {
+    "question": "The wages of 10 workers for a six-day week is $ 1200. What are the one day’s wages of 4 workers?",
+    "answers": ["$40", "$80", "$32", "24"],
+    "correct": 1
+  }, {
+    "question": "All natural numbers and 0 are called the ... numbers.",
+    "answers": ["prime", "integer", "whole", "rational"],
+    "correct": 2
+  }, {
+    "question": "Three angles of a quadrilateral are 117°, 56° and 89° What is the size of the fourth angle?",
+    "answers": ["88°", "92°", "98°", "108°"],
+    "correct": 2
+  }, {
+    "question": "Plot the points [4, 8], [7, 4] and [4, 0], and join them to make a triangle. Which of the following correctly describes this triangle?",
+    "answers": ["It is a right isosceles triangle", "It is an acute isosceles triangle", "It is an obtuse isosceles triangle", "It is an equilateral triangle"],
+    "correct": 2
+  }, {
+    "question": "Divide 3.8646 by 0.0076",
+    "answers": ["5.085", "50.85", "508.5", "5,085"],
+    "correct": 2
+  }]
+}, {
+  "id": 2,
+  "title": "Do You Know The World History ?",
+  "content": [{
+    "question": "What scandal forced U.S. President Richard Nixon to resign in 1974?",
+    "answers": ["Watergate", "Iran Contra", "Lewinsky Scandal", "Whitewater"],
+    "correct": 0
+  }, {
+    "question": "Who was the first female prime minister of Britain?",
+    "answers": ["Florence Nightingale", "Queen Elizabeth II", "Margaret Thatcher", "Jane Austen"],
+    "correct": 2
+  }, {
+    "question": "The Cuban Revolution led to the rise of what dictator?",
+    "answers": ["Fidel Castro", "Rafael Trujillo", "Che Guevara", "Augusto Pinochet"],
+    "correct": 0
+  }, {
+    "question": "Along with Hiroshima, Japan, which Japanese city was hit by an atomic bomb in 1945?",
+    "answers": ["Tokyo", "Osaka", "Nagasaki", "Nagoya"],
+    "correct": 2
+  }, {
+    "question": "Who assassinated Abraham Lincoln?",
+    "answers": ["Lee Harvey Oswald", "James Earl Ray", "John Wilkes Booth", "Leon Czolgosz"],
+    "correct": 2
+  }, {
+    "question": "Adolf Hitler was the leader of which party?",
+    "answers": ["Communist Party", "Nazi Party", "Republican Fascist Party", "none of the above."],
+    "correct": 1
+  }, {
+    "question": "Which continent was devastated by the Black Death in the 1300s?",
+    "answers": ["North America", "South America", "Europe", "Africa"],
+    "correct": 2
+  }]
+}, {
+  "id": 3,
+  "title": "Can You Guess the Musical ?",
+  "content": [{
+    "question": "A governess cares for a group of children in the early days of WWII.",
+    "answers": ["\"The King and I\"", "\"My Fair Lady\"", "\"Mary Poppins\"", "\"The Sound of Music\""],
+    "correct": 3
+  }, {
+    "question": "A good girl and a bad boy fall for each other over the summer, but things get complicated when school starts.",
+    "answers": ["\"West Side Story\"", "\"Grease\"", "\"Footloose\"", "\"Hairspray\""],
+    "correct": 1
+  }, {
+    "question": "Elphaba is totally a victim of circumstances and wasn't always so mean.",
+    "answers": ["\"Wicked\"", "\"Into the Woods\"", "\"Gypsy\"", "\"The Wizard of Oz\""],
+    "correct": 0
+  }, {
+    "question": "It's Jets vs.Sharks as a pair of star - crossed lovers struggle to be together in 1950 s NYC.",
+    "answers": ["\"Guys and Dolls\"", "\"Hairspray\"", "\"West Side Story\"", "\"In the Heights\""],
+    "correct": 2
+  }, {
+    "question": "A group of struggling artists try to keep the bills paid in New York's East Village at the dawn of the 90s.",
+    "answers": ["\"Avenue Q\"", "\"Rent\"", "\"In the Heights\"", "\"Next to Normal\""],
+    "correct": 1
+  }, {
+    "question": "A teen girl fights segregation while showing the world (or at least Baltimore) her far-out dancing skills.",
+    "answers": ["\"All Shook Up\"", "\"Hairspray\"", "\"Beautiful\"", "\"Waitress\""],
+    "correct": 1
+  }, {
+    "question": "A wrongly-convicted barber takes revenge by murdering his customers.",
+    "answers": ["\"Sweeney Todd\"", "\"Something Rotten!\"", "\"Little Shop of Horrors\"", "\"A Gentleman's Guide to Love and Murder\""],
+    "correct": 0
+  }]
+}, {
+  "id": 4,
+  "title": "How Well Do You Know \"The Big Lebowski\" ?",
+  "content": [{
+    "question": "What Bob Dylan song plays during the film's opening credits?",
+    "answers": ["\"Lay Lady Lay\"", "\"Like a Rolling Stone\"", "\"The Man in Me\"", "\"Forever Young\""],
+    "correct": 2
+  }, {
+    "question": "What is The Dude's favorite drink?",
+    "answers": ["Manhattan", "White Russian (a.k.a. Caucasian)", "Gin and Tonic", "Old Fashioned"],
+    "correct": 1
+  }, {
+    "question": "In what year does The Big Lebowski take place?",
+    "answers": ["1988", "1991", "1994", "1999"],
+    "correct": 1
+  }, {
+    "question": "What prolific Western actor narrates the film as The Stranger?",
+    "answers": ["Sam Elliott", "Clint Eastwood", "Jeff Bridges", "Robert Duvall"],
+    "correct": 0
+  }, {
+    "question": "For what single item does The Dude write a check totaling 69 cents at the supermarket in the opening sequence?",
+    "answers": ["Quart of Milk", "An Orange", "Beef Jerky", "Candy Bar"],
+    "correct": 0
+  }, {
+    "question": "What religion does Walter practice?",
+    "answers": ["Catholocism", "Southern Baptist", "Islam", "Judaism"],
+    "correct": 3
+  }, {
+    "question": "Who is the \"known pornographer\" to whom Bunny Lebowski owes money?",
+    "answers": ["Jack Horner", "Ron Jeremy", "Jackie Treehorn", "Buck Swope"],
+    "correct": 2
+  }]
+}, {
+  "id": 5,
+  "title": "Countries and Capitals Trivia",
+  "content": [{
+    "question": "Greek democracy and Roman columns heavily influenced America's capital. What is it?",
+    "answers": ["New York City", "Philadelphia", "Los Angeles", "Washington, D.C."],
+    "correct": 3
+  }, {
+    "question": "Japan is known as the \"Land of the Rising Sun,\" and its capital is the world's most populous metro. What's the capital?",
+    "answers": ["Tokyo", "Bangkok", "Hong Kong", "Osaka"],
+    "correct": 0
+  }, {
+    "question": "All roads lead to the capital of Italy. Do you know it?",
+    "answers": ["Vatican City", "Venice", "Rome", "Milan"],
+    "correct": 2
+  }, {
+    "question": "Germany's capital has over 2,000 bridges, which is more than Amsterdam or Venice. What's the capital of Germany?",
+    "answers": ["Cologne", "Frankfurt", "Munich", "Berlin"],
+    "correct": 3
+  }, {
+    "question": "Nearly 20% of the world's population lives in China. Do you know its capital?",
+    "answers": ["Shanghai", "Hong Kong", "Beijing", "Seoul"],
+    "correct": 2
+  }, {
+    "question": "Writers Oscar Wilde, Bram Stroker and Jonathan Swift all graduated college in Ireland's capital. What is it?",
+    "answers": ["Glasgow", "Edinburgh", "Dublin", "Belfast"],
+    "correct": 2
+  }, {
+    "question": "The Great Pyramid of Giza is the only Wonder of the Ancient World still standing. It can be seen from what capital city of Egypt?",
+    "answers": ["Mecca", "Cairo", "Dubai", "Damascus"],
+    "correct": 1
+  }]
+}]

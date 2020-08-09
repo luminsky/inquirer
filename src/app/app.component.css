@@ -1,0 +1,97 @@
+* {
+  animation: reveal 0.7s ease-in-out;
+}
+
+.container {
+  position: relative;
+  border-radius: 3px;
+  background: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  margin: 25px auto;
+  width: 600px;
+  padding: 16px;
+  animation: ease-in-out reveal 0.5s;
+}
+
+.quiz-completed::after {
+  content: "";
+  background: #32c670 url(../assets/checked.png) no-repeat;
+  background-size: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 3px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0 0 16px 0;
+  color: rgb(100, 100, 100);
+  text-shadow: 0 3px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+li,
+p {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  transition: 0.15s;
+  border-top: 1px solid lightgray;
+  font-size: 18px;
+  list-style: none;
+}
+
+li:hover {
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: white;
+  cursor: pointer;
+  transform: scale(1.065);
+}
+
+li::before {
+  content: "> ";
+  font-family: monospace;
+  color: rgb(180, 180, 180);
+}
+
+small {
+  opacity: 0.35;
+}
+
+.back-btn {
+  transition: 0.2s;
+  font: bold 30px/1.5 monospace;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--light-gray);
+  border: var(--light-gray) 5px dotted;
+  background: #eee6;
+  animation: btn-reveal 0.3s ease-out, back-anim 1s ease-in-out infinite;
+}
+
+.back-btn:hover {
+  border-radius: 0;
+  animation-play-state: paused;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 650px) {
+  .container {
+    margin: 0;
+    border-radius: 0;
+    width: auto;
+    min-width: 450px;
+  }
+}

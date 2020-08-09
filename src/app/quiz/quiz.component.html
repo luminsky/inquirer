@@ -1,0 +1,17 @@
+<h1 class="title">Quiz</h1>
+<h2 class="title">{{ quiz.title }}</h2>
+
+<form class="quiz" (submit)="onSubmit($event)">
+  <div class="question" *ngFor="let content of quiz.content; let qi = index">
+    <p>{{ content.question }}</p>
+
+    <div class="answer" *ngFor="let answer of content.answers; let ai = index">
+      <input class="answer-radio" type="radio" [name]="qi" [value]="qi+','+ai" />{{ answer }}
+    </div>
+  </div>
+
+  <div class="btns-wrapper">
+    <input class="btn" id="submit" type="submit" value="Submit" />
+    <button class="btn" id="clear" type="submit" disabled>Clear</button>
+  </div>
+</form>
