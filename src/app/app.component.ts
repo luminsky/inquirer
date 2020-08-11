@@ -9,9 +9,9 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title: string = 'Select the quiz:';
   quizzes: Quiz[];
-  activeQuiz: Quiz;
+  active: Quiz;
+  chooseMode = true;
 
   constructor(private service: MainService) {
     this.quizzes = service.quizList;
@@ -25,5 +25,13 @@ export class AppComponent {
           target.checked = true;
         }
       });
+  }
+
+  setActive(quiz: Quiz) {
+    this.active = quiz;
+  }
+
+  switchMode(bool: boolean) {
+    this.chooseMode = bool;
   }
 }

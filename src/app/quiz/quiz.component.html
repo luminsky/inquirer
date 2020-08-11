@@ -6,12 +6,11 @@
     <p>{{ content.question }}</p>
 
     <div class="answer" *ngFor="let answer of content.answers; let ai = index">
-      <input class="answer-radio" type="radio" [name]="qi" [value]="qi+','+ai" />{{ answer }}
+      <input class="answer-radio" type="radio" [name]="qi" [value]="qi+','+ai">{{ answer }}
     </div>
   </div>
 
   <div class="btns-wrapper">
-    <input class="btn" id="submit" type="submit" value="Submit" />
-    <button class="btn" id="clear" type="submit" disabled>Clear</button>
+    <input class="btn" id="submit" type="submit" value="Submit">
   </div>
 </form>

@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Quiz } from '../shared/main.service';
-import { fromEvent } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-quiz',

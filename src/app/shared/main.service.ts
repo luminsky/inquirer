@@ -4,14 +4,17 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import staticTests from '../../assets/tests.json';
 
-export interface Quiz {
-  id: string;
+export interface QuizWithNoId {
   title: string;
   content: Array<{
     question: string;
     answers: string[];
     correct: number;
   }>;
+}
+
+export interface Quiz extends QuizWithNoId {
+  id: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -33,13 +36,13 @@ export class MainService {
       );
   }
 
-  create(test: any): Observable<Quiz> {
+  create(test: QuizWithNoId): Observable<Quiz> {
     return this.http
       .post<{ name: string }>(`${MainService.url}.json`, test)
       .pipe(map((res) => ({ ...test, id: res.name })));
   }
 
-  remove(test: { id: string }): Observable<void> {
-    return this.http.delete<void>(`${MainService.url}/${test.id}.json`);
+  remove(item: { id: string }): Observable<void> {
+    return this.http.delete<void>(`${MainService.url}/${item.id}.json`);
   }
 }

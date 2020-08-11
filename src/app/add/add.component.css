@@ -1,0 +1,93 @@
+* {
+  animation: reveal 0.7s ease-in-out;
+}
+
+textarea::selection {
+  background: rgb(125, 160, 240);
+  color: white;
+}
+
+#title {
+  resize: none;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  text-align: left;
+}
+
+.number {
+  width: 30px;
+}
+
+textarea:focus,
+.number:focus {
+  border-color: rgb(187, 187, 187);
+}
+
+textarea,
+.number {
+  line-height: 1.6rem;
+  font-size: 16px;
+  transition: .15s;
+  border: none;
+  border-bottom: 1px solid var(--light-gray);
+  color: rgb(114, 114, 114);
+}
+
+textarea {
+  overflow: hidden;
+  resize: vertical;
+  min-height: 25px;
+  max-height: 55px;
+  width: 97%;
+}
+
+.ba1 {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.ba2 {
+  width: fit-content;
+}
+
+.add {
+  margin-top: 10px;
+  background: rgb(95, 128, 219);
+  border-color: rgb(79, 79, 209);
+}
+
+.wrap {
+  display: inline-block;
+  height: 3rem;
+}
+
+.block {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: 4px dotted var(--light-gray);
+}
+
+::-webkit-input-placeholder {
+  opacity: .6;
+  transition: opacity 0.3s;
+}
+
+::-moz-placeholder {
+  opacity: .6;
+  transition: opacity 0.3s;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s;
+}

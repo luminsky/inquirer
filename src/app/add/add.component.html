@@ -1,0 +1,33 @@
+<form>
+  <textarea [(ngModel)]="quiz.title" name="title" id="title" class="block" rows="1" maxlength="50"
+    placeholder="Title of the quiz"></textarea>
+
+  <div *ngFor="let question of quiz.content; let qi = index" class="block">
+    <h3 class="title">Question:</h3>
+    <textarea [(ngModel)]="quiz.content[qi].question" [name]="'q'+qi" class="question-field" rows="1"
+      maxlength="170"></textarea>
+
+    <div>
+      <h3 class="title">Answers:</h3>
+      <textarea *ngFor="let answer of question.answers; let ai = index" [(ngModel)]="answers[qi][ai]"
+        [name]="'q'+qi+'a'+ai" class="answer-field" rows="1" maxlength="70"></textarea>
+
+      <div class="wrap">
+        <button class="btn add ba1" (click)="addAnswer(qi, $event)">+</button>
+        <button class="btn add ba1" (click)="removeAnswer(qi, $event)">-</button>
+      </div>
+
+      Correct: <input [(ngModel)]='quiz.content[qi].correct' [name]="'c'+qi" class="number" min="0"
+        [max]="question.answers.length - 1" type="number">
+    </div>
+
+  </div>
+
+  <div class="wrap">
+    <button class="btn add ba2" (click)="addQuestion()">+ Question</button>
+  </div>
+
+  <div class="btns-wrapper">
+    <input class="btn" type="submit" value="Send" (click)="onSubmit($event)">
+  </div>
+</form>

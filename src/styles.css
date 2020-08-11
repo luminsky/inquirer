@@ -46,7 +46,9 @@ body {
   background: none;
 }
 
-input {
+input,
+textarea,
+button {
   outline: none;
 }
 
@@ -76,4 +78,44 @@ input {
   50% {
     transform: translateX(5px);
   }
+}
+
+/* Buttons */
+.btn {
+  margin-right: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 8px;
+  width: 70px;
+  border: none;
+  border-bottom: 4px solid;
+  border-radius: 2px;
+  font-size: 16px;
+  color: white;
+  background: rgb(80, 220, 80);
+  border-color: rgb(80, 180, 80);
+}
+
+.btns-wrapper {
+  max-width: fit-content;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn:hover {
+  filter: contrast(125%);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: auto;
+  animation: none;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  filter: none;
+  border-bottom-width: 1px;
 }
