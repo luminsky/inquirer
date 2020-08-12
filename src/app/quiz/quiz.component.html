@@ -1,5 +1,6 @@
-<h1 class="title">Quiz</h1>
-<h2 class="title">{{ quiz.title }}</h2>
+<div class="back" (click)="back()">&#171;</div>
+<h1 class="text-decor">Quiz</h1>
+<h2 class="text-decor">{{ quiz.title }}</h2>
 
 <form class="quiz" (submit)="onSubmit($event)">
   <div class="question" *ngFor="let content of quiz.content; let qi = index">

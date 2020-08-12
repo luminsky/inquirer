@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Quiz, MainService } from './shared/main.service';
-import { map } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +9,16 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  quizzes: Quiz[];
+  quizzes: Quiz[] = [];
   active: Quiz;
-  chooseMode = true;
+  choiseMode = true;
 
   constructor(private service: MainService) {
     this.quizzes = service.quizList;
     service.load().subscribe((data) => this.quizzes.push(...data));
 
     fromEvent(document, 'click')
-      .pipe(map((v: any) => v.target))
+      .pipe(map((v: Event) => v.target as HTMLInputElement))
       .subscribe((target) => {
         if (target.className === 'answer') {
           target = target.querySelector('input');
@@ -27,11 +27,11 @@ export class AppComponent {
       });
   }
 
-  setActive(quiz: Quiz) {
+  setQuiz(quiz: Quiz) {
     this.active = quiz;
   }
 
-  switchMode(bool: boolean) {
-    this.chooseMode = bool;
+  setChoiseMode(value: boolean) {
+    this.choiseMode = value;
   }
 }

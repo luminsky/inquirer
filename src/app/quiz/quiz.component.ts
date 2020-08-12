@@ -8,6 +8,7 @@ import { Quiz } from '../shared/main.service';
 })
 export class QuizComponent implements OnInit {
   @Input() quiz: Quiz;
+  @Input() back: VoidFunction;
 
   constructor() {}
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MainService, QuizWithNoId } from '../shared/main.service';
+import { MainService, QuizWithNoId, Quiz } from '../shared/main.service';
 
 @Component({
   selector: 'app-add',
@@ -7,30 +7,30 @@ import { MainService, QuizWithNoId } from '../shared/main.service';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  quiz: QuizWithNoId = { title: '', content: [] };
+  @Input() quizzes: Quiz[];
+  @Input() back: VoidFunction;
   answers: Array<string[]> = [];
-  @Input() quizzes;
-  @Input() back;
+  quiz: QuizWithNoId;
 
   constructor(private service: MainService) {}
 
   ngOnInit(): void {
+    this.quiz = { title: '', content: [] };
     this.addQuestion();
   }
 
   addQuestion() {
+    this.answers.push(['', '', '']);
     this.quiz.content.push({
       question: '',
       answers: ['', '', ''],
       correct: 0,
     });
-    this.answers.push(['', '', '']);
   }
 
-  addAnswer(i: number, e: any) {
+  addAnswer(i: number) {
     this.quiz.content[i].answers.push('');
     this.answers[i].push('');
-    // if (this.quiz.content[i].answers.length >= 6) e.target.disabled = true;
   }
 
   removeAnswer(i: number) {
@@ -38,9 +38,17 @@ export class AddComponent implements OnInit {
     this.answers[i].pop();
   }
 
+  validatePlus = (i: number): boolean =>
+    this.quiz.content[i].answers.length >= 6 ? true : false;
+
+  validateMinus = (i: number): boolean =>
+    this.quiz.content[i].answers.length <= 2 ? true : false;
+
   onSubmit(e: Event) {
     e.preventDefault();
-    this.answers.forEach((e, i) => (this.quiz.content[i].answers = e));
+
+    this.answers.forEach((elem, i) => (this.quiz.content[i].answers = elem));
+
     this.service.create(this.quiz).subscribe((data) => {
       this.quizzes.push(data);
       this.back();

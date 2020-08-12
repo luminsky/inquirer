@@ -24,3 +24,23 @@
 input {
   cursor: pointer;
 }
+
+.back {
+  transition: 0.2s;
+  font: bold 30px/1.5 monospace;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--light-gray);
+  border: var(--light-gray) 5px dotted;
+  background: #eee6;
+  animation: btn-reveal 0.3s ease-out, back-anim 1s ease-in-out infinite;
+}
+
+.back:hover {
+  border-radius: 0;
+  animation-play-state: paused;
+}

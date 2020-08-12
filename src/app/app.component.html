@@ -1,29 +1,27 @@
 <div class="container">
-  <div class="menu" *ngIf="!active">
-    <h1 [ngClass]="{'not-active': !chooseMode}" class="title selector" (click)="switchMode(true)">Pass the test</h1>
-    <h1 [ngClass]="{'not-active': chooseMode}" class="title selector" (click)="switchMode(false)">Add a test</h1>
-  </div>
+  <div *ngIf="!active">
+    <div class="nav">
+      <h1 [ngClass]="{'active': choiseMode}" class="text-decor section" (click)="setChoiseMode(true)">Pass the
+        test
+      </h1>
+      <h1 [ngClass]="{'active': !choiseMode}" class="text-decor section" (click)="setChoiseMode(false)">Add a test
+      </h1>
+    </div>
 
-  <div *ngIf="!active" [ngSwitch]="chooseMode">
-    <div *ngSwitchCase="true">
+    <div *ngIf="choiseMode">
       <ul *ngIf="quizzes.length; else noQuiz">
-        <li [ngClass]="{'quiz-completed': false}" *ngFor="let quiz of quizzes" (click)="setActive(quiz)">
+        <li [ngClass]="{'completed': false}" *ngFor="let quiz of quizzes" (click)="setQuiz(quiz)">
           {{ quiz.title }}
         </li>
       </ul>
+
+      <ng-template #noQuiz>
+        <p>No available tests</p>
+      </ng-template>
     </div>
 
-    <ng-template #noQuiz>
-      <p style="opacity: 0.5; text-align: center;">No available tests</p>
-    </ng-template>
-
-    <div *ngSwitchDefault>
-      <app-add [quizzes]="quizzes" [back]="switchMode.bind(this, true)"></app-add>
-    </div>
+    <app-add *ngIf="!choiseMode" [quizzes]="quizzes" [back]="setChoiseMode.bind(this, true)"></app-add>
   </div>
 
-  <div *ngIf="active">
-    <div class="back-btn" (click)="setActive(null)">&#171;</div>
-    <app-quiz [quiz]="active"></app-quiz>
-  </div>
+  <app-quiz *ngIf="active" [quiz]="active" [back]="setQuiz.bind(this, null)"></app-quiz>
 </div>

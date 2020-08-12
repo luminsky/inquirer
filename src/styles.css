@@ -6,9 +6,6 @@
 html {
   overflow-y: scroll;
   cursor: default;
-}
-
-html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -21,6 +18,7 @@ html {
 body {
   margin: 0;
   background: var(--bg-color) url(assets/bg.jpg) repeat;
+  background-attachment: fixed;
 }
 
 ::-webkit-scrollbar-corner,
@@ -52,11 +50,48 @@ button {
   outline: none;
 }
 
-.title {
+.text-decor {
   margin: 0 0 16px 0;
   color: rgb(100, 100, 100);
   text-shadow: 0 3px rgba(0, 0, 0, 0.15);
   text-align: center;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: 70px;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  color: white;
+  background: rgb(80, 220, 80);
+  box-shadow: 0 4px rgb(80, 180, 80);
+  transition: 0.2s;
+}
+
+.btns-wrapper {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn:hover {
+  filter: contrast(125%);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: auto;
+  animation-duration: 0s;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  filter: none;
+  box-shadow: 0 1px rgb(80, 180, 80);
 }
 
 /* Animations */
@@ -78,44 +113,4 @@ button {
   50% {
     transform: translateX(5px);
   }
-}
-
-/* Buttons */
-.btn {
-  margin-right: 10px;
-  margin-top: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-  padding: 8px;
-  width: 70px;
-  border: none;
-  border-bottom: 4px solid;
-  border-radius: 2px;
-  font-size: 16px;
-  color: white;
-  background: rgb(80, 220, 80);
-  border-color: rgb(80, 180, 80);
-}
-
-.btns-wrapper {
-  max-width: fit-content;
-  height: 55px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn:hover {
-  filter: contrast(125%);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: auto;
-  animation: none;
-}
-
-.btn:active {
-  transform: translateY(3px);
-  filter: none;
-  border-bottom-width: 1px;
 }

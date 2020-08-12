@@ -7,20 +7,6 @@ textarea::selection {
   color: white;
 }
 
-#title {
-  resize: none;
-  text-align: center;
-}
-
-.title {
-  margin: 0;
-  text-align: left;
-}
-
-.number {
-  width: 30px;
-}
-
 textarea:focus,
 .number:focus {
   border-color: rgb(187, 187, 187);
@@ -32,8 +18,14 @@ textarea,
   font-size: 16px;
   transition: .15s;
   border: none;
-  border-bottom: 1px solid var(--light-gray);
-  color: rgb(114, 114, 114);
+  color: rgb(120, 120, 120);
+}
+
+.number {
+  cursor: default;
+  font-weight: 600;
+  color: rgb(140, 140, 140);
+  width: 30px;
 }
 
 textarea {
@@ -42,30 +34,42 @@ textarea {
   min-height: 25px;
   max-height: 55px;
   width: 97%;
+  border-bottom: 1px solid var(--light-gray);
 }
 
-.ba1 {
-  height: 35px;
-  width: 35px;
+.correct {
+  display: inline-block;
+  color: rgb(150, 150, 150);
+}
+
+.title-field {
+  resize: none;
+  text-align: center;
+}
+
+.text-decor {
+  margin: 0;
+  text-align: left;
+}
+
+.blue {
+  margin: 5px 5px 5px 0;
+  width: auto;
+  background: rgb(95, 130, 220);
+  box-shadow: 0 4px rgb(80, 80, 210);
+}
+
+.blue:active {
+  box-shadow: 0 1px rgb(80, 80, 210);
+}
+
+.op {
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
 }
 
-.ba2 {
-  width: fit-content;
-}
-
-.add {
-  margin-top: 10px;
-  background: rgb(95, 128, 219);
-  border-color: rgb(79, 79, 209);
-}
-
-.wrap {
-  display: inline-block;
-  height: 3rem;
-}
-
-.block {
+.outline {
   padding: 5px;
   margin-bottom: 5px;
   border-radius: 10px;

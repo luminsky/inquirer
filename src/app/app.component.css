@@ -3,17 +3,16 @@
 }
 
 .container {
-  position: relative;
   border-radius: 3px;
   background: white;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
   margin: 25px auto;
-  width: 600px;
   padding: 16px;
+  max-width: 600px;
   animation: ease-in-out reveal 0.5s;
 }
 
-.quiz-completed::after {
+.completed::after {
   content: "";
   background: #32c670 url(../assets/checked.png) no-repeat;
   background-size: 20px;
@@ -21,27 +20,10 @@
   display: inline-block;
   width: 20px;
   height: 20px;
-  position: relative;
-  top: 3px;
+  transform: translateY(3px);
 }
 
-.selector {
-  margin: auto 5px;
-  transition: .5s;
-  display: inline;
-  cursor: pointer;
-}
-
-.selector:hover {
-  opacity: 1;
-}
-
-.not-active {
-  font-size: smaller;
-  opacity: .4;
-}
-
-.menu {
+.nav {
   width: 100%;
   height: 50px;
   margin-bottom: 10px;
@@ -49,16 +31,28 @@
   justify-content: center;
 }
 
+.section {
+  margin: auto 5px;
+  transition: .5s;
+  display: inline;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: .4;
+}
+
+.section:hover {
+  opacity: .8;
+}
+
+.active {
+  cursor: default;
+  font-size: 2rem;
+  opacity: 1;
+}
+
 ul {
   margin: 0;
   padding: 0;
-}
-
-h1 {
-  margin: 0 0 16px 0;
-  color: rgb(100, 100, 100);
-  text-shadow: 0 3px rgba(0, 0, 0, 0.15);
-  text-align: center;
 }
 
 li,
@@ -72,11 +66,19 @@ p {
   list-style: none;
 }
 
+p {
+  opacity: 0.5;
+  text-align: center;
+}
+
+li {
+  cursor: pointer;
+}
+
 li:hover {
   z-index: 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   background: white;
-  cursor: pointer;
   transform: scale(1.065);
 }
 
@@ -86,36 +88,12 @@ li::before {
   color: rgb(180, 180, 180);
 }
 
-small {
-  opacity: 0.35;
-}
-
-.back-btn {
-  transition: 0.2s;
-  font: bold 30px/1.5 monospace;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  cursor: pointer;
-  border-radius: 50%;
-  color: var(--light-gray);
-  border: var(--light-gray) 5px dotted;
-  background: #eee6;
-  animation: btn-reveal 0.3s ease-out, back-anim 1s ease-in-out infinite;
-}
-
-.back-btn:hover {
-  border-radius: 0;
-  animation-play-state: paused;
-}
-
-/* Responsive styles */
+/* Responsive */
 @media screen and (max-width: 650px) {
   .container {
     margin: 0;
     border-radius: 0;
     width: auto;
-    min-width: 450px;
+    min-width: 460px;
   }
 }
