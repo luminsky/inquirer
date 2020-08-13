@@ -3,6 +3,10 @@
   --light-gray: #e6e6e6;
 }
 
+body * {
+  animation: fade-in 0.7s ease-in-out;
+}
+
 html {
   overflow-y: scroll;
   cursor: default;
@@ -95,21 +99,14 @@ button {
 }
 
 /* Animations */
-@keyframes reveal {
+@keyframes fade-in {
   0% {
     opacity: 0;
     transform: translateY(-10px);
   }
 }
 
-@keyframes btn-reveal {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-}
-
-@keyframes back-anim {
+@keyframes wobble {
   50% {
     transform: translateX(5px);
   }

@@ -1,28 +1,39 @@
-* {
-  animation: reveal 0.7s ease-in-out;
+input,
+.answer {
+  cursor: pointer;
+}
+
+.answer>input {
+  display: none;
+}
+
+.answer div {
+  transition: 0.2s;
+  display: inline-block;
+  margin: 0 10px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  width: 10px;
+  height: 10px;
+}
+
+.answer input:checked+div {
+  background: rgb(150, 150, 220);
 }
 
 .answer {
-  transition: 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  display: block;
   margin: 4px;
   border-radius: 10px;
   padding: 5px;
   color: rgb(100, 100, 100);
   background: rgb(245, 245, 245);
+  transition: 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .answer:hover {
   background: rgb(235, 235, 235);
-  cursor: pointer;
   transform: translateX(5px);
-}
-
-.answer>input {
-  margin-right: 14px;
-}
-
-input {
-  cursor: pointer;
 }
 
 .back {
@@ -37,10 +48,52 @@ input {
   color: var(--light-gray);
   border: var(--light-gray) 5px dotted;
   background: #eee6;
-  animation: btn-reveal 0.3s ease-out, back-anim 1s ease-in-out infinite;
+  animation: wobble 1s ease-in-out infinite;
 }
 
 .back:hover {
   border-radius: 0;
   animation-play-state: paused;
+}
+
+.result-value {
+  color: white;
+  font-weight: 700;
+  font-size: 26px;
+  text-align: center;
+  border-radius: 12px;
+  width: fit-content;
+  padding: 5px 10px;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  animation: result-anim ease-in-out 2s;
+}
+
+.result-text {
+  font-family: Tahoma;
+  text-align: center;
+  margin: 0;
+}
+
+@keyframes result-anim {
+  0% {
+    opacity: 0;
+    bottom: 40vh;
+    transform: scale(3);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  70% {
+    bottom: 40vh;
+    transform: scale(3);
+  }
+
+  100% {
+    bottom: 0;
+    transform: scale(1);
+  }
 }

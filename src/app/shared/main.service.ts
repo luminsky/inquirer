@@ -11,6 +11,8 @@ export interface QuizWithNoId {
     answers: string[];
     correct: number;
   }>;
+  passedAt?: number;
+  passedValue?: string;
 }
 
 export interface Quiz extends QuizWithNoId {

@@ -10,8 +10,9 @@
 
     <div *ngIf="choiseMode">
       <ul *ngIf="quizzes.length; else noQuiz">
-        <li [ngClass]="{'completed': false}" *ngFor="let quiz of quizzes" (click)="setQuiz(quiz)">
+        <li *ngFor="let quiz of quizzes" (click)="setQuiz(quiz)">
           {{ quiz.title }}
+          <small *ngIf="quiz.passedValue" class="completed">{{quiz.passedValue}} - {{quiz.passedAt | date}}</small>
         </li>
       </ul>
 

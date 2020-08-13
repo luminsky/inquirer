@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Quiz, MainService } from './shared/main.service';
-import { fromEvent } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +15,13 @@ export class AppComponent {
     this.quizzes = service.quizList;
     service.load().subscribe((data) => this.quizzes.push(...data));
 
-    fromEvent(document, 'click')
-      .pipe(map((v: Event) => v.target as HTMLInputElement))
-      .subscribe((target) => {
-        if (target.className === 'answer') {
-          target = target.querySelector('input');
-          target.checked = true;
-        }
-      });
+    this.quizzes.forEach((quiz) => {
+      let passed = JSON.parse(localStorage.getItem(quiz.id));
+      if (passed) {
+        quiz.passedAt = passed.timestamp;
+        quiz.passedValue = (passed.result as [number, number]).join('/');
+      }
+    });
   }
 
   setQuiz(quiz: Quiz) {
