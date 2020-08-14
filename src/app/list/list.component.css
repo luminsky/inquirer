@@ -1,0 +1,90 @@
+small {
+  transition: .15s;
+  color: rgba(150, 150, 150, 0);
+}
+
+li:hover small {
+  color: rgba(150, 150, 150, 1);
+}
+
+.completed::before {
+  content: "";
+  background: #32c670 url(../../assets/checked.png) no-repeat;
+  background-size: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  transform: translateY(3px);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li,
+p {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  transition: 0.15s;
+  border-top: 1px solid lightgray;
+  font-size: 18px;
+  list-style: none;
+}
+
+p {
+  opacity: 0.5;
+  text-align: center;
+}
+
+li {
+  cursor: pointer;
+}
+
+li:hover {
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  background: white;
+  transform: scale(1.065);
+}
+
+li::before {
+  content: "> ";
+  font-family: monospace;
+  color: rgb(180, 180, 180);
+}
+
+.search {
+  cursor: text;
+  padding: 2px;
+  width: fit-content;
+  box-shadow: inset 0 3px 5px var(--light-gray);
+}
+
+.search * {
+  vertical-align: middle;
+}
+
+.search-ico {
+  cursor: text;
+  opacity: .7;
+}
+
+#search {
+  border: none;
+  background: none;
+  width: 60px;
+  margin-left: 5px;
+  color: rgb(130, 130, 130);
+  font-size: 14px;
+  font-family: 'Consolas', monospace;
+  text-shadow: 2px 2px #f0f0f0;
+  transition: .4s;
+}
+
+#search:focus {
+  width: 200px;
+}

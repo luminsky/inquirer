@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import staticTests from '../../assets/tests.json';
+import { map, take } from 'rxjs/operators';
 
-export interface QuizWithNoId {
+export interface Quiz {
+  id?: string;
   title: string;
   content: Array<{
     question: string;
@@ -15,16 +15,30 @@ export interface QuizWithNoId {
   passedValue?: string;
 }
 
-export interface Quiz extends QuizWithNoId {
-  id: string;
-}
-
 @Injectable({ providedIn: 'root' })
 export class MainService {
   static url = 'https://in-quirer.firebaseio.com/tests';
-  quizList: Quiz[] = staticTests;
+  quizzes: Quiz[] = [];
+  preloadQuiz: Quiz;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.load()
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.quizzes.push(...data);
+
+        // localStorage.setItem('quizcache', JSON.stringify(data));
+
+        this.quizzes.forEach((quiz) => {
+          const passed = JSON.parse(localStorage.getItem(quiz.id));
+
+          if (passed) {
+            quiz.passedAt = passed.timestamp;
+            quiz.passedValue = (passed.result as [number, number]).join('/');
+          }
+        });
+      });
+  }
 
   load(): Observable<Quiz[]> {
     return this.http
@@ -38,7 +52,7 @@ export class MainService {
       );
   }
 
-  create(test: QuizWithNoId): Observable<Quiz> {
+  create(test: Quiz): Observable<Quiz> {
     return this.http
       .post<{ name: string }>(`${MainService.url}.json`, test)
       .pipe(map((res) => ({ ...test, id: res.name })));

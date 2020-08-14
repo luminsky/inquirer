@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MainService, QuizWithNoId, Quiz } from '../shared/main.service';
+import { MainService, Quiz } from '../shared/main.service';
 
 @Component({
   selector: 'app-add',
@@ -7,14 +7,15 @@ import { MainService, QuizWithNoId, Quiz } from '../shared/main.service';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  @Input() quizzes: Quiz[];
   @Input() back: VoidFunction;
+  quizzes: Quiz[];
   answers: Array<string[]> = [];
-  quiz: QuizWithNoId;
+  quiz: Quiz;
 
   constructor(private service: MainService) {}
 
   ngOnInit(): void {
+    this.quizzes = this.service.quizzes;
     this.quiz = { title: '', content: [] };
     this.addQuestion();
   }
@@ -51,7 +52,8 @@ export class AddComponent implements OnInit {
 
     this.service.create(this.quiz).subscribe((data) => {
       this.quizzes.push(data);
-      this.back();
     });
+
+    this.back();
   }
 }

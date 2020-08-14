@@ -1,0 +1,15 @@
+<div (click)="focusSearchField()" class="search">
+  <label for="search" class="search-ico"><img src="../../assets/search.png" width="25px" alt="Find"></label>
+  <input type="text" #search id="search" placeholder="Find...">
+</div>
+
+<ul *ngIf="quizzes.length; else noQuiz">
+  <li *ngFor="let quiz of quizzes" (click)="setQuiz(quiz)" routerLink="quiz" [queryParams]="{id: quiz.id}">
+    {{ quiz.title }}
+    <small *ngIf="quiz.passedValue" class="completed">{{quiz.passedValue}} - {{quiz.passedAt | date}}</small>
+  </li>
+</ul>
+
+<ng-template #noQuiz>
+  <p>No test available</p>
+</ng-template>

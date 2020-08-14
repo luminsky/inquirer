@@ -8,19 +8,19 @@
 
     <div>
       <h3 class="text-decor">Answers:</h3>
-      <textarea *ngFor="let answer of question.answers; index as ai" [(ngModel)]="answers[qi][ai]"
-        [ngModelOptions]="{standalone: true}" rows="1" maxlength="70"></textarea>
+      <div *ngFor="let answer of question.answers; index as ai">
+        <label class="correct">
+          <input type="radio" [(ngModel)]='quiz.content[qi].correct' [ngModelOptions]='{standalone: true}' [value]="ai">
+          <div></div>
+        </label>
+        <textarea class="answer-field" [(ngModel)]="answers[qi][ai]" [ngModelOptions]="{standalone: true}" rows="1"
+          maxlength="70"></textarea>
+      </div>
 
       <button class="btn blue op" [disabled]="validatePlus(qi)" (click)="addAnswer(qi)">+</button>
       <button class="btn blue op" [disabled]="validateMinus(qi)" (click)="removeAnswer(qi)">-</button>
-
-      <div class="correct">
-        Correct: <input [(ngModel)]='quiz.content[qi].correct' [name]="'c'+qi" class="number" min="0"
-          [max]="question.answers.length - 1" type="number">
-      </div>
     </div>
   </div>
-
   <button class="btn blue" (click)="addQuestion()">+ Question</button>
 
   <div class="btns-wrapper">

@@ -5,6 +5,7 @@
 
 body * {
   animation: fade-in 0.7s ease-in-out;
+  outline: none;
 }
 
 html {
@@ -48,10 +49,22 @@ body {
   background: none;
 }
 
-input,
-textarea,
-button {
-  outline: none;
+::-webkit-input-placeholder {
+  opacity: .6;
+  transition: opacity 0.3s;
+}
+
+::-moz-placeholder {
+  opacity: .6;
+  transition: opacity 0.3s;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+:focus::-moz-placeholder {
+  opacity: 0;
 }
 
 .text-decor {

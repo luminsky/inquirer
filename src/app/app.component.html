@@ -1,28 +1,3 @@
 <div class="container">
-  <div *ngIf="!active">
-    <div class="nav">
-      <h1 [ngClass]="{'active': choiseMode}" class="text-decor section" (click)="setChoiseMode(true)">Pass the
-        test
-      </h1>
-      <h1 [ngClass]="{'active': !choiseMode}" class="text-decor section" (click)="setChoiseMode(false)">Add a test
-      </h1>
-    </div>
-
-    <div *ngIf="choiseMode">
-      <ul *ngIf="quizzes.length; else noQuiz">
-        <li *ngFor="let quiz of quizzes" (click)="setQuiz(quiz)">
-          {{ quiz.title }}
-          <small *ngIf="quiz.passedValue" class="completed">{{quiz.passedValue}} - {{quiz.passedAt | date}}</small>
-        </li>
-      </ul>
-
-      <ng-template #noQuiz>
-        <p>No available tests</p>
-      </ng-template>
-    </div>
-
-    <app-add *ngIf="!choiseMode" [quizzes]="quizzes" [back]="setChoiseMode.bind(this, true)"></app-add>
-  </div>
-
-  <app-quiz *ngIf="active" [quiz]="active" [back]="setQuiz.bind(this, null)"></app-quiz>
+  <router-outlet></router-outlet>
 </div>

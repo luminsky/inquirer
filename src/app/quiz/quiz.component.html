@@ -1,8 +1,9 @@
-<div class="back" (click)="back()">&#171;</div>
-<h1 class="text-decor">Quiz</h1>
-<h2 class="text-decor">{{ quiz.title }}</h2>
+<div class="back" routerLink="">&#171;</div>
 
-<form class="quiz" (submit)="onSubmit($event)">
+<form *ngIf="quiz; else error" class="quiz" (submit)="onSubmit($event)">
+  <h1 class="text-decor">Quiz</h1>
+  <h2 class="text-decor">{{ quiz.title }}</h2>
+
   <div class="question" *ngFor="let content of quiz.content; let qi = index">
     <p>{{ content.question }}</p>
 
@@ -15,10 +16,14 @@
   <div *ngIf="!result; else resultBlock" class="btns-wrapper">
     <input class="btn" id="submit" type="submit" value="Submit">
   </div>
-
-  <ng-template #resultBlock>
-    <h2 class="result-value" [style.background]="toShow.color">{{toShow.value + "%"}}</h2>
-    <p class="result-text" [style.color]="toShow.color">{{toShow.text}}</p>
-    <button class="btn" (click)="back()">&#60; Back</button>
-  </ng-template>
 </form>
+
+<ng-template #resultBlock>
+  <h2 class="result-value" [style.background]="toShow.color">{{toShow.value + "%"}}</h2>
+  <p class="result-text" [style.color]="toShow.color">{{toShow.text}}</p>
+  <button class="btn" routerLink="">&#60; Back</button>
+</ng-template>
+
+<ng-template #error>
+  <h1 class="text-decor">The quiz is not available</h1>
+</ng-template>
