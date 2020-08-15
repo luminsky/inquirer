@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MainService, Quiz } from '../shared/main.service';
 
 @Component({
@@ -7,21 +7,19 @@ import { MainService, Quiz } from '../shared/main.service';
   styleUrls: ['./add.component.css'],
 })
 export class AddComponent implements OnInit {
-  @Input() back: VoidFunction;
   quizzes: Quiz[];
-  answers: Array<string[]> = [];
   quiz: Quiz;
 
-  constructor(private service: MainService) {}
+  constructor(private service: MainService) {
+    this.quizzes = service.quizzes;
+    this.quiz = { title: '', content: [] };
+  }
 
   ngOnInit(): void {
-    this.quizzes = this.service.quizzes;
-    this.quiz = { title: '', content: [] };
     this.addQuestion();
   }
 
   addQuestion() {
-    this.answers.push(['', '', '']);
     this.quiz.content.push({
       question: '',
       answers: ['', '', ''],
@@ -29,14 +27,14 @@ export class AddComponent implements OnInit {
     });
   }
 
+  trackFn = (i: number) => i;
+
   addAnswer(i: number) {
     this.quiz.content[i].answers.push('');
-    this.answers[i].push('');
   }
 
   removeAnswer(i: number) {
     this.quiz.content[i].answers.pop();
-    this.answers[i].pop();
   }
 
   validatePlus = (i: number): boolean =>
@@ -48,12 +46,8 @@ export class AddComponent implements OnInit {
   onSubmit(e: Event) {
     e.preventDefault();
 
-    this.answers.forEach((elem, i) => (this.quiz.content[i].answers = elem));
-
     this.service.create(this.quiz).subscribe((data) => {
       this.quizzes.push(data);
     });
-
-    this.back();
   }
 }

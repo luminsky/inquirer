@@ -2,18 +2,20 @@
   <textarea [(ngModel)]="quiz.title" name="title" class="outline title-field" rows="1" maxlength="50"
     placeholder="Title of a quiz"></textarea>
 
-  <div *ngFor="let question of quiz.content; index as qi" class="outline">
+  <div *ngFor="let question of quiz.content; index as qi; trackBy: trackFn" class="outline">
     <h3 class="text-decor">Question:</h3>
-    <textarea [(ngModel)]="quiz.content[qi].question" [name]="'q'+qi" rows="1" maxlength="170"></textarea>
+    <textarea [(ngModel)]="quiz.content[qi].question" [name]="'question:'+qi" rows="1" maxlength="170"></textarea>
 
     <div>
       <h3 class="text-decor">Answers:</h3>
-      <div *ngFor="let answer of question.answers; index as ai">
+
+      <div *ngFor="let answer of question.answers; index as ai; trackBy: trackFn">
         <label class="correct">
-          <input type="radio" [(ngModel)]='quiz.content[qi].correct' [ngModelOptions]='{standalone: true}' [value]="ai">
+          <input type="radio" [(ngModel)]="quiz.content[qi].correct" [name]="qi+':'+ai" [value]="ai">
           <div></div>
         </label>
-        <textarea class="answer-field" [(ngModel)]="answers[qi][ai]" [ngModelOptions]="{standalone: true}" rows="1"
+
+        <textarea class="answer-field" [(ngModel)]="quiz.content[qi].answers[ai]" [name]="'answer:'+qi+':'+ai" rows="1"
           maxlength="70"></textarea>
       </div>
 
@@ -21,9 +23,10 @@
       <button class="btn blue op" [disabled]="validateMinus(qi)" (click)="removeAnswer(qi)">-</button>
     </div>
   </div>
+
   <button class="btn blue" (click)="addQuestion()">+ Question</button>
 
   <div class="btns-wrapper">
-    <input class="btn" type="submit" value="Send" (click)="onSubmit($event)">
+    <input class="btn" type="submit" value="Send" (click)="onSubmit($event)" routerLink="">
   </div>
 </form>

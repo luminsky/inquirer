@@ -36,7 +36,7 @@ export class ListComponent implements AfterViewInit {
   }
 
   ngOnDestroy() {
-    if (this.inputSubscription) this.inputSubscription.unsubscribe();
+    this.inputSubscription?.unsubscribe();
   }
 
   focusSearchField() {

@@ -1,3 +1,10 @@
 <div class="container">
+  <div *ngIf="route.pathname === '/' || route.pathname === '/add'" class="nav">
+    <h1 routerLink="" [ngClass]="{'active': route.pathname === '/'}" class="text-decor section">Pass the test</h1>
+    <h1 routerLink="add" routerLinkActive="active" class="text-decor section">Add a test</h1>
+  </div>
+
   <router-outlet></router-outlet>
 </div>
+
+<footer>© 2020 Valentine Shveda</footer>
