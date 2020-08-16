@@ -3,7 +3,8 @@
   --light-gray: #e6e6e6;
 }
 
-body * {
+/* body * *, */
+app-root * {
   animation: fade-in 0.7s ease-in-out;
   outline: none;
 }
@@ -122,5 +123,14 @@ body {
 @keyframes wobble {
   50% {
     transform: translateX(5px);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 650px) {
+
+  ::-webkit-scrollbar-corner,
+  ::-webkit-scrollbar {
+    background: white;
   }
 }

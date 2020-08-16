@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quiz, MainService } from '../shared/main.service';
 import { ActivatedRoute } from '@angular/router';
-import { map, take } from 'rxjs/operators';
+import { map, take, takeUntil, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-quiz',
@@ -16,19 +16,21 @@ export class QuizComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: MainService) {
     this.quiz = service.preloadQuiz;
 
-    const interval = setInterval(() => {
-      if (!service.quizzes.length) return;
-
-      clearInterval(interval);
-      route.queryParams
-        .pipe(
-          take(1),
-          map((params) =>
-            service.quizzes.find((quiz) => quiz.id === params['id'])
+    this.service.quizzesLoaded
+      .pipe(
+        filter((v) => v),
+        take(1)
+      )
+      .subscribe(() => {
+        route.queryParams
+          .pipe(
+            take(1),
+            map((params) =>
+              service.quizzes.find((quiz) => quiz.id === params['id'])
+            )
           )
-        )
-        .subscribe((quiz) => (this.quiz = quiz));
-    }, 15);
+          .subscribe((quiz) => (this.quiz = quiz));
+      });
   }
 
   ngOnInit(): void {}

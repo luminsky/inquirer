@@ -19,15 +19,24 @@ export class AddComponent implements OnInit {
     this.addQuestion();
   }
 
+  trackFn = (i: number) => i;
+
   addQuestion() {
     this.quiz.content.push({
       question: '',
       answers: ['', '', ''],
       correct: 0,
     });
+
+    setTimeout(
+      () => document.body.scrollIntoView({ behavior: 'smooth', block: 'end' }),
+      0
+    );
   }
 
-  trackFn = (i: number) => i;
+  removeQuestion() {
+    this.quiz.content.pop();
+  }
 
   addAnswer(i: number) {
     this.quiz.content[i].answers.push('');
@@ -36,12 +45,6 @@ export class AddComponent implements OnInit {
   removeAnswer(i: number) {
     this.quiz.content[i].answers.pop();
   }
-
-  validatePlus = (i: number): boolean =>
-    this.quiz.content[i].answers.length >= 6 ? true : false;
-
-  validateMinus = (i: number): boolean =>
-    this.quiz.content[i].answers.length <= 2 ? true : false;
 
   onSubmit(e: Event) {
     e.preventDefault();

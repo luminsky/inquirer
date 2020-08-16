@@ -92,3 +92,9 @@ li::before {
 :focus::-moz-placeholder {
   opacity: 0.5;
 }
+
+@media screen and (max-width: 650px) {
+  small {
+    color: rgba(150, 150, 150, 1);
+  }
+}

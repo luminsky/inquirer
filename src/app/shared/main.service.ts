@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 export interface Quiz {
@@ -20,6 +20,7 @@ export class MainService {
   static url = 'https://in-quirer.firebaseio.com/tests';
   quizzes: Quiz[] = [];
   preloadQuiz: Quiz;
+  quizzesLoaded = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) {
     this.load()
@@ -37,6 +38,8 @@ export class MainService {
             quiz.passedValue = (passed.result as [number, number]).join('/');
           }
         });
+
+        this.quizzesLoaded.next(true);
       });
   }
 

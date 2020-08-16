@@ -9,7 +9,7 @@
     <div>
       <h3 class="text-decor">Answers:</h3>
 
-      <div *ngFor="let answer of question.answers; index as ai; trackBy: trackFn">
+      <div class="answer" *ngFor="let answer of question.answers; index as ai; trackBy: trackFn">
         <label class="correct">
           <input type="radio" [(ngModel)]="quiz.content[qi].correct" [name]="qi+':'+ai" [value]="ai">
           <div></div>
@@ -19,12 +19,13 @@
           maxlength="70"></textarea>
       </div>
 
-      <button class="btn blue op" [disabled]="validatePlus(qi)" (click)="addAnswer(qi)">+</button>
-      <button class="btn blue op" [disabled]="validateMinus(qi)" (click)="removeAnswer(qi)">-</button>
+      <button class="btn blue op" [disabled]="quiz.content[qi].answers.length >= 6" (click)="addAnswer(qi)">+</button>
+      <button class="btn red op" [disabled]="quiz.content[qi].answers.length <= 2" (click)="removeAnswer(qi)">-</button>
     </div>
   </div>
 
   <button class="btn blue" (click)="addQuestion()">+ Question</button>
+  <button class="btn red" [disabled]="!(quiz.content.length - 1)" (click)="removeQuestion()">- Question</button>
 
   <div class="btns-wrapper">
     <input class="btn" type="submit" value="Send" (click)="onSubmit($event)" routerLink="">

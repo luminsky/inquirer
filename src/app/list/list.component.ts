@@ -29,7 +29,7 @@ export class ListComponent implements AfterViewInit {
     this.inputSubscription = this.input$.subscribe((value) => {
       if (!value) this.quizzes = this.service.quizzes;
 
-      this.quizzes = this.quizzes.filter((quiz) =>
+      this.quizzes = this.service.quizzes.filter((quiz) =>
         quiz.title.toLowerCase().startsWith(value.toLowerCase())
       );
     });

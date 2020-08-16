@@ -51,6 +51,17 @@ textarea {
   box-shadow: 0 1px rgb(80, 80, 210);
 }
 
+.red {
+  margin: 5px 5px 5px 0;
+  width: auto;
+  background: rgb(240, 100, 100);
+  box-shadow: 0 4px rgb(185, 75, 75);
+}
+
+.red:active {
+  box-shadow: 0 1px rgb(185, 75, 75);
+}
+
 .op {
   font-weight: bold;
   height: 30px;
@@ -63,6 +74,14 @@ textarea {
   margin-bottom: 5px;
   border-radius: 10px;
   border: 4px dotted var(--light-gray);
+}
+
+:disabled {
+  animation: inherit;
+}
+
+.outline * {
+  animation: none;
 }
 
 .correct {
